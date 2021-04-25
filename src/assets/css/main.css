@@ -1,0 +1,34 @@
+.test {
+    background-color: blueviolet;
+}
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir.eot');
+    src: url('../fonts/Vazir.woff') format('woff'),
+         url('../fonts/Vazir.ttf') format('truetype');
+         
+    font-weight: normal;
+  }
+
+@font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir-Bold.eot');
+    src: url('../fonts/Vazir-Bold.woff') format('woff'),
+         url('../fonts/Vazir-Bold.ttf') format('truetype');
+         
+    font-weight: bold;
+  }
+        
+  @font-face {
+    font-family: Vazir;
+    src: url('../fonts/Vazir-Medium.eot');
+    src: url('../fonts/Vazir-Medium.woff') format('woff'),
+         url('../fonts/Vazir-Medium.ttf') format('truetype');
+         
+    font-weight: medium;
+  }
+
+  .vazir {
+      font-family: Vazir !important;
+  }
+  
