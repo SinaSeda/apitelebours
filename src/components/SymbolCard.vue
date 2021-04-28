@@ -79,7 +79,11 @@
                 </v-list-item-avatar>
               </v-list-item>
 <!-- ------------------------Chart Vuetify------------------------------->
-    <v-card-text>
+<TrendChart
+  :selectDate="trendSymbolObj.date"
+  :symbolId="trendSymbolObj.id"
+/>
+    <!-- <v-card-text>
       <v-sheet
         class="v-sheet--offset mx-auto"
         color="cyan"
@@ -102,7 +106,7 @@
 
     <v-card-text>
       <div class="display-1 font-weight-thin">Sales Last 24h</div>
-    </v-card-text>
+    </v-card-text> -->
 <!-- ------------------------------------------------------------------- -->
 
               <!-- <v-card-actions>
@@ -154,6 +158,7 @@
 </template>
 
 <script>
+import TrendChart from '../components/TrendChart'
 import symbolinfo from '../service/infosymbol'
 import messages from '../service/messages'
 import prices from '../service/prices'
@@ -165,6 +170,9 @@ import prices from '../service/prices'
         type: Object,
         default: null
       }
+    },
+    components: {
+      TrendChart
     },
     data() {
       return {
@@ -238,13 +246,13 @@ import prices from '../service/prices'
           this.errors.push(e)
         })
         // ------------------priceChart-------------------------
-        console.log(fromDate)
-        console.log('https://telebourse.ir/api/v1/symbols/'+ symbolId+'/trades?from='+fromDate+'%2000:00:00&to='+toDate+'%2000:00:00&format=day')
+        // console.log(fromDate)
+        // console.log('https://telebourse.ir/api/v1/symbols/'+ symbolId+'/trades?from='+fromDate+'%2000:00:00&to='+toDate+'%2000:00:00&format=day')
         prices.Prices(symbolId , fromDate , toDate)
         .then(response => {
         // JSON responses are automatically parsed.
           this.priceChart = response.data
-          console.log(this.priceChart)
+          // console.log(this.priceChart)
         })
         .catch(e => {
           this.errors.push(e)
@@ -273,7 +281,7 @@ import prices from '../service/prices'
       
       this.symbolInfoo = response.data
       // this.f = true
-      console.log(this.symbolInfoo)
+      // console.log(this.symbolInfoo)
       })
       .catch(e => {
         this.errors.push(e)

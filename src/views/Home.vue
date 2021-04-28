@@ -237,7 +237,7 @@ export default {
       .then(response => {
       // JSON responses are automatically parsed.
       this.trendsArray = response.data
-      console.log(this.trendsArray)
+      // console.log(this.trendsArray)
 
       })
       .catch(e => {
