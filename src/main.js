@@ -7,6 +7,7 @@ import vuetify from './plugins/vuetify';
 import '../src/assets/css/main.css'
 
 Vue.config.productionTip = false
+Vue.use(require('vue-moment-jalaali'));
 
 new Vue({
   router,

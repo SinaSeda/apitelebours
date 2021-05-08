@@ -4,13 +4,23 @@
       <v-container fluid>
         <canvas id="planet-chart"></canvas>
       </v-container>
+      <p>salam</p>
+      <!-- <span>{{ "2021-05-08" | moment("jYYYY/jM/jD") }}</span> -->
+
+      <!-- or create a new date from 'now' -->
+      <!-- <span>{{ new Date() | moment("dddd, MMMM Do YYYY") }}</span> -->
+      <!-- <span>{{ someDate | moment("calendar") }}</span> -->
     </v-main>
   </v-app>
 </template>
 
 <script>
+
 // import HelloWorld from '@/components/HelloWorld.vue'
-import Chart from 'chart.js'
+// import Chart from 'chart.js'
+// import moment from 'vue-moment'
+import moment from 'jalali-moment'
+
 
 
 
@@ -62,8 +72,12 @@ export default {
 
   },
   mounted: function () {
-    const ctx = document.getElementById('planet-chart');
-    new Chart(ctx, this.planetChartData);
+    // const ctx = document.getElementById('planet-chart');
+    // new Chart(ctx, this.planetChartData);
+    var m = moment("2021-05-07")
+    m.locale('fa');
+    var output = m.format('ddd') + ' ' + m.format("YYYY/MMMM/DD")
+    console.log(output)
   }
 
 }

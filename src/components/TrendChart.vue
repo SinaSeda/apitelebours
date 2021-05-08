@@ -5,6 +5,7 @@
 </template>
 
 <script>
+import moment from 'jalali-moment'
 import Chart from 'chart.js'
 import messages from '../service/messages'
 import prices from '../service/prices'
@@ -39,6 +40,7 @@ import sentiment from '../service/sentiment'
         priceChart: [],
         senseChart: [],
         labelsChart: [],
+        jalaliLabelsChart: [],
         valueConversion: [],
         planetTrendChart: {
           type: "bar",
@@ -107,6 +109,12 @@ import sentiment from '../service/sentiment'
           this.valueConversion.push(this.msgChart.data.messages[i].value)
         }
         this.maxOfNumMsg = Math.max(...this.valueConversion)
+        for (let j=0 ; j<this.labelsChart.length ; j++) {
+          var day = moment(this.labelsChart[j])
+          day.locale('fa');
+          var output = day.format('ddd') + ' ' + day.format("YYYY/MMMM/DD")
+          this.jalaliLabelsChart.push(output)
+        }
 
         this.show = this.show + 1
       })
@@ -172,7 +180,7 @@ import sentiment from '../service/sentiment'
       show: function() {
         if(this.show === 111){
           // -----Create Main Label-------
-          this.planetTrendChart.data.labels = this.labelsChart
+          this.planetTrendChart.data.labels = this.jalaliLabelsChart
 
           // -----Add Massage Chart Value-----------
           let j
